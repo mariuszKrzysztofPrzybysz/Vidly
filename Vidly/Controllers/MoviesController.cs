@@ -1,6 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Data.Entity;
+using System.Data.Entity.Infrastructure;
+using System.Data.Entity.Validation;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
@@ -115,8 +117,6 @@ namespace Vidly.Controllers
                 movieInDatabase.GenreId = movie.GenreId;
                 movieInDatabase.NumberInStock = movie.NumberInStock;
             }
-
-            _context.SaveChanges();
 
             return RedirectToAction("Index");
         }
