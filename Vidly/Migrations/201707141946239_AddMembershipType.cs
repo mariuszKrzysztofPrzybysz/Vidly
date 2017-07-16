@@ -8,7 +8,7 @@ namespace Vidly.Migrations
         public override void Up()
         {
             CreateTable(
-                "dbo.MembershipTypes",
+                "dbo.CustomerFormViewModel",
                 c => new
                     {
                         Id = c.Byte(nullable: false),
@@ -20,15 +20,15 @@ namespace Vidly.Migrations
             
             AddColumn("dbo.Customers", "MembershipTypeId", c => c.Byte(nullable: false));
             CreateIndex("dbo.Customers", "MembershipTypeId");
-            AddForeignKey("dbo.Customers", "MembershipTypeId", "dbo.MembershipTypes", "Id", cascadeDelete: true);
+            AddForeignKey("dbo.Customers", "MembershipTypeId", "dbo.CustomerFormViewModel", "Id", cascadeDelete: true);
         }
         
         public override void Down()
         {
-            DropForeignKey("dbo.Customers", "MembershipTypeId", "dbo.MembershipTypes");
+            DropForeignKey("dbo.Customers", "MembershipTypeId", "dbo.CustomerFormViewModel");
             DropIndex("dbo.Customers", new[] { "MembershipTypeId" });
             DropColumn("dbo.Customers", "MembershipTypeId");
-            DropTable("dbo.MembershipTypes");
+            DropTable("dbo.CustomerFormViewModel");
         }
     }
 }
