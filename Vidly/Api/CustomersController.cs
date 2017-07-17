@@ -12,7 +12,7 @@ namespace Vidly.Api
 {
     public class CustomersController : ApiController
     {
-        private ApplicationDbContext _context;
+        private readonly ApplicationDbContext _context;
 
         public CustomersController()
         {
@@ -57,7 +57,7 @@ namespace Vidly.Api
 
         // PUT /api/customers/1
         [HttpPut]
-        public void PutCustomer(int id, CustomerDto customerDto)
+        public HttpResponseMessage PutCustomer(int id, CustomerDto customerDto)
         {
             if (!ModelState.IsValid)
                 throw new HttpResponseException(HttpStatusCode.BadRequest);
@@ -70,11 +70,13 @@ namespace Vidly.Api
             Mapper.Map(customerDto, customerInDatabase);
 
             _context.SaveChanges();
+
+            return new HttpResponseMessage(HttpStatusCode.OK);
         }
 
         // DELETE /api/customerDto/1
         [HttpDelete]
-        public void DeleteCustomer(int id)
+        public HttpResponseMessage DeleteCustomer(int id)
         {
             var customerInDatabase = _context.Customers.SingleOrDefault(c => c.Id == id);
 
@@ -84,6 +86,8 @@ namespace Vidly.Api
             _context.Customers.Remove(customerInDatabase);
 
             _context.SaveChanges();
+
+            return new HttpResponseMessage(HttpStatusCode.OK);
         }
     }
 }
