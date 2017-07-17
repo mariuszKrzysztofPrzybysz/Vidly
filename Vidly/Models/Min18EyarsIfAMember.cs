@@ -1,5 +1,8 @@
 ﻿using System;
 using System.ComponentModel.DataAnnotations;
+using AutoMapper;
+using Vidly.Dtos;
+using ValidationContext = System.ComponentModel.DataAnnotations.ValidationContext;
 
 namespace Vidly.Models
 {
@@ -10,7 +13,16 @@ namespace Vidly.Models
             var customer = validationContext.ObjectInstance as Customer;
 
             if (customer == null)
-                return new ValidationResult("Customer object is required.");
+            {
+                var customerDto = validationContext.ObjectInstance as CustomerDto;
+
+                if (customerDto == null)
+                    return new ValidationResult("Customer or CustomerDto object is required.");
+
+                customer=new Customer();
+
+                Mapper.Map(customerDto, customer);
+            }
 
             if (customer.MembershipTypeId == MembershipType.Unknown
                 || customer.MembershipTypeId == MembershipType.PayAsYouGo)
