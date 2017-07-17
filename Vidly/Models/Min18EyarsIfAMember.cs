@@ -12,7 +12,8 @@ namespace Vidly.Models
             if (customer == null)
                 return new ValidationResult("Customer object is required.");
 
-            if (customer.MembershipTypeId==0 || customer.MembershipTypeId == 1)
+            if (customer.MembershipTypeId == MembershipType.Unknown
+                || customer.MembershipTypeId == MembershipType.PayAsYouGo)
                 return ValidationResult.Success;
 
             if (customer.Birthdate == null)
