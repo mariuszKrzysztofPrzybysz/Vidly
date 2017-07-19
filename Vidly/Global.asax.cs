@@ -12,6 +12,7 @@ namespace Vidly
         protected void Application_Start()
         {
             Mapper.Initialize(config => config.AddProfile<CustomerProfile>());
+            Mapper.Initialize(config => config.AddProfile<MovieProfile>());
             GlobalConfiguration.Configure(WebApiConfig.Register);
             AreaRegistration.RegisterAllAreas();
             FilterConfig.RegisterGlobalFilters(GlobalFilters.Filters);
