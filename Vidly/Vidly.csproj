@@ -238,6 +238,7 @@
     <Compile Include="Controllers\ManageController.cs" />
     <Compile Include="Controllers\MoviesController.cs" />
     <Compile Include="Dtos\CustomerDto.cs" />
+    <Compile Include="Dtos\MembershipTypeDto.cs" />
     <Compile Include="Dtos\MovieDto.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -308,6 +309,7 @@
     <Compile Include="Models\Min18EyarsIfAMember.cs" />
     <Compile Include="Models\Movie.cs" />
     <Compile Include="Profiles\CustomerProfile.cs" />
+    <Compile Include="Profiles\MembershipTypeProfile.cs" />
     <Compile Include="Profiles\MovieProfile.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Startup.cs" />
