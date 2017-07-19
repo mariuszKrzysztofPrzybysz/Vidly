@@ -15,23 +15,23 @@ else
 {
     <table id="customers" class="table table-bordered table-hover">
         <thead>
-            <tr>
-                <th>Customer</th>
-                <th>Membership Type</th>
-                <th>Delete</th>
-            </tr>
+        <tr>
+            <th>Customer</th>
+            <th>Membership Type</th>
+            <th>Delete</th>
+        </tr>
         </thead>
         <tbody>
-            @foreach (var customer in Model)
-            {
-                <tr>
-                    <td>@Html.ActionLink(customer.Name, "Edit", "Customers", new { id = customer.Id }, null)</td>
-                    <td>@customer.MembershipType.Name</td>
-                    <td>
-                        <button data-customer-id="@customer.Id" class="btn-link js-delete">Delete</button>
-                    </td>
-                </tr>
-            }
+        @foreach (var customer in Model)
+        {
+            <tr>
+                <td>@Html.ActionLink(customer.Name, "Edit", "Customers", new { id = customer.Id }, null)</td>
+                <td>@customer.MembershipType.Name</td>
+                <td>
+                    <button data-customer-id="@customer.Id" class="btn-link js-delete">Delete</button>
+                </td>
+            </tr>
+        }
         </tbody>
     </table>
 }
@@ -39,7 +39,8 @@ else
 {
     <script>
         $(document).ready(function() {
-            $('#customers .js-delete').on("click",
+            $('#customers').on("click",
+                ".js-delete",
                 function() {
                     var button = $(this);
                     bootbox.confirm({
