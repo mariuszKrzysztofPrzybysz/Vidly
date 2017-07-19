@@ -10,8 +10,7 @@ namespace Vidly.Profiles
         {
             CreateMap<Customer, CustomerDto>();
 
-            CreateMap<CustomerDto, Customer>()
-                .ForMember(m => m.Id, opt => opt.Ignore());
+            CreateMap<CustomerDto, Customer>();
         }
     }
 }

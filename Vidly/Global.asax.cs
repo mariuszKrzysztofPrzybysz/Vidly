@@ -16,6 +16,7 @@ namespace Vidly
                 config.AddProfile<CustomerProfile>();
                 config.AddProfile<MovieProfile>();
                 config.AddProfile<MembershipTypeProfile>();
+                config.AddProfile<GenreProfile>();
             });
             GlobalConfiguration.Configure(WebApiConfig.Register);
             AreaRegistration.RegisterAllAreas();
