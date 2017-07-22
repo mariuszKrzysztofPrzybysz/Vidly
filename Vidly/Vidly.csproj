@@ -308,11 +308,17 @@
     <Compile Include="Migrations\201707201332320_AddDrivingLicenceToApplicationUser.Designer.cs">
       <DependentUpon>201707201332320_AddDrivingLicenceToApplicationUser.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201707212122381_AddPhoneToApplicationUser.cs" />
+    <Compile Include="Migrations\201707212122381_AddPhoneToApplicationUser.Designer.cs">
+      <DependentUpon>201707212122381_AddPhoneToApplicationUser.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
+    <Compile Include="Models\ApplicationDbContext.cs" />
+    <Compile Include="Models\ApplicationUser.cs" />
     <Compile Include="Models\Customer.cs" />
+    <Compile Include="Models\ExternalLoginConfirmationViewModel.cs" />
     <Compile Include="Models\Genre.cs" />
-    <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
     <Compile Include="Models\MembershipType.cs" />
     <Compile Include="Models\Min18EyarsIfAMember.cs" />
@@ -708,6 +714,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201707201332320_AddDrivingLicenceToApplicationUser.resx">
       <DependentUpon>201707201332320_AddDrivingLicenceToApplicationUser.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201707212122381_AddPhoneToApplicationUser.resx">
+      <DependentUpon>201707212122381_AddPhoneToApplicationUser.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
