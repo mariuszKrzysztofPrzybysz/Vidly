@@ -4,8 +4,10 @@ using System.Data.Entity;
 using System.Data.Entity.Infrastructure;
 using System.Data.Entity.Validation;
 using System.Linq;
+using System.Runtime.Caching;
 using System.Web;
 using System.Web.Mvc;
+using System.Web.UI;
 using Vidly.Models;
 using Vidly.ViewModels;
 
@@ -29,6 +31,7 @@ namespace Vidly.Controllers
         //    };
         //}
 
+        [AllowAnonymous]
         public ActionResult Index()
         {
             return View(User.IsInRole(RoleName.CanManageMovies) ? "List" : "ReadOnlyList");
@@ -141,6 +144,7 @@ namespace Vidly.Controllers
         }
 
         [Authorize(Roles = RoleName.CanManageMovies)]
+        [OutputCache(Duration = 60, VaryByParam = "*", Location = OutputCacheLocation.Client)]
         public ActionResult Edit(int id)
         {
             var movie = _context.Movies.SingleOrDefault(m => m.Id == id);
@@ -148,10 +152,15 @@ namespace Vidly.Controllers
             if (movie == null)
                 return HttpNotFound();
 
+            if (MemoryCache.Default["Genres"] == null)
+                MemoryCache.Default["Genres"] = _context.Genres.ToList();
+
+            var genres = MemoryCache.Default["Genres"] as IEnumerable<Genre>;
+
             var viewModel = new MovieFormViewModel
             {
                 Movie = movie,
-                Genres = _context.Genres
+                Genres = genres
             };
 
             return View("MovieForm", viewModel);

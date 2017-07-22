@@ -2,8 +2,10 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Data.Entity;
+using System.Runtime.Caching;
 using System.Web;
 using System.Web.Mvc;
+using System.Web.Security;
 using Vidly.Models;
 using Vidly.ViewModels;
 
@@ -26,7 +28,7 @@ namespace Vidly.Controllers
         // GET: Customers
         public ActionResult Index()
         {
-            return View();
+            return View((User.IsInRole(RoleName.CanManageMovies) ? "List" : "ReadOnlyList"));
         }
 
         public ActionResult Details(int id)
