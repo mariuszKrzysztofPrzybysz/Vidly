@@ -247,6 +247,7 @@
   <ItemGroup>
     <Compile Include="Api\CustomersController.cs" />
     <Compile Include="Api\MoviesController.cs" />
+    <Compile Include="Api\RentalsController.cs" />
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\IdentityConfig.cs" />
@@ -262,6 +263,7 @@
     <Compile Include="Dtos\GenreDto.cs" />
     <Compile Include="Dtos\MembershipTypeDto.cs" />
     <Compile Include="Dtos\MovieDto.cs" />
+    <Compile Include="Dtos\RentalDto.cs" />
     <Compile Include="GlimpseSecurityPolicy.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -334,6 +336,10 @@
     <Compile Include="Migrations\201707212122381_AddPhoneToApplicationUser.Designer.cs">
       <DependentUpon>201707212122381_AddPhoneToApplicationUser.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201708011231285_AddRental.cs" />
+    <Compile Include="Migrations\201708011231285_AddRental.Designer.cs">
+      <DependentUpon>201708011231285_AddRental.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\ApplicationDbContext.cs" />
@@ -345,6 +351,7 @@
     <Compile Include="Models\MembershipType.cs" />
     <Compile Include="Models\Min18EyarsIfAMember.cs" />
     <Compile Include="Models\Movie.cs" />
+    <Compile Include="Models\Rental.cs" />
     <Compile Include="Models\RoleName.cs" />
     <Compile Include="Profiles\CustomerProfile.cs" />
     <Compile Include="Profiles\GenreProfile.cs" />
@@ -740,6 +747,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201707212122381_AddPhoneToApplicationUser.resx">
       <DependentUpon>201707212122381_AddPhoneToApplicationUser.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201708011231285_AddRental.resx">
+      <DependentUpon>201708011231285_AddRental.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
