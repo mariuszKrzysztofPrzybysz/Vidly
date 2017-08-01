@@ -26,6 +26,7 @@ namespace Vidly.Controllers
         }
 
         // GET: Customers
+        [AllowAnonymous]
         public ActionResult Index()
         {
             return View((User.IsInRole(RoleName.CanManageMovies) ? "List" : "ReadOnlyList"));

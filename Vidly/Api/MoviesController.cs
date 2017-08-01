@@ -19,7 +19,6 @@ namespace Vidly.Api
         }
 
         // GET /api/movies
-        [HttpGet]
         public IEnumerable<MovieDto> GetMovies()
         {
             return _context.Movies
@@ -27,7 +26,6 @@ namespace Vidly.Api
                 .Select(Mapper.Map<Movie, MovieDto>);
         }
 
-        [HttpGet]
         public IHttpActionResult GetMovie(int id)
         {
             var movie = _context.Movies.SingleOrDefault(m => m.Id == id);
@@ -47,6 +45,7 @@ namespace Vidly.Api
 
             var movie = Mapper.Map<MovieDto, Movie>(movieDto);
             movie.DateAdded = DateTime.Now;
+            movie.NumberAvailable = movie.NumberInStock;
 
 
             _context.Movies.Add(movie);

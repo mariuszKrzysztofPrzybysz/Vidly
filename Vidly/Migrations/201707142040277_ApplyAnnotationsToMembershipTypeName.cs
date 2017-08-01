@@ -7,12 +7,12 @@ namespace Vidly.Migrations
     {
         public override void Up()
         {
-            AlterColumn("dbo.CustomerFormViewModel", "Name", c => c.String(nullable: false, maxLength: 255));
+            AlterColumn("dbo.MembershipTypes", "Name", c => c.String(nullable: false, maxLength: 255));
         }
         
         public override void Down()
         {
-            AlterColumn("dbo.CustomerFormViewModel", "Name", c => c.String());
+            AlterColumn("dbo.MembershipTypes", "Name", c => c.String());
         }
     }
 }

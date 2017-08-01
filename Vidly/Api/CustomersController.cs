@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using System.Data.Entity;
@@ -23,7 +24,7 @@ namespace Vidly.Api
         public IEnumerable<CustomerDto> GetCustomers()
         {
             return _context.Customers
-                .Include(c=>c.MembershipType)
+                .Include(c => c.MembershipType)
                 .Select(Mapper.Map<Customer, CustomerDto>);
         }
 
